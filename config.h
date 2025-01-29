@@ -67,7 +67,7 @@ static const int vertpad                 = 10;  /* vertical padding of bar */
 static const int sidepad                 = 10;  /* horizontal padding of bar */
 #endif // BAR_PADDING_PATCH
 #if BAR_WINICON_PATCH
-#define ICONSIZE 20    /* icon size */
+#define ICONSIZE 32    /* icon size */
 #define ICONSPACING 5  /* space between icon and title */
 #endif // BAR_WINICON_PATCH
 #if FOCUSONCLICK_PATCH
@@ -101,7 +101,7 @@ static const int vertpadbar              = 8;   /* vertical padding for statusba
 static const char buttonbar[]            = "<O>";
 #endif // BAR_STATUSBUTTON_PATCH
 #if BAR_SYSTRAY_PATCH
-static const unsigned int systrayspacing = 2;   /* systray spacing */
+static const unsigned int systrayspacing = 8;   /* systray spacing */
 static const int showsystray             = 1;   /* 0 means no systray */
 #endif // BAR_SYSTRAY_PATCH
 #if BAR_TAGLABELS_PATCH
@@ -110,8 +110,8 @@ static const char etagf[] = "[%s]";             /* format of an empty tag */
 static const int lcaselbl = 0;                  /* 1 means make tag label lowercase */
 #endif // BAR_TAGLABELS_PATCH
 #if BAR_UNDERLINETAGS_PATCH
-static const unsigned int ulinepad = 5;         /* horizontal padding between the underline and tag */
-static const unsigned int ulinestroke  = 2;     /* thickness / height of the underline */
+static const unsigned int ulinepad = 0;         /* horizontal padding between the underline and tag */
+static const unsigned int ulinestroke  = 4;     /* thickness / height of the underline */
 static const unsigned int ulinevoffset = 0;     /* how far above the bottom of the bar the line should appear */
 static const int ulineall = 0;                  /* 1 to show underline on all tags, 0 for just the active ones */
 #endif // BAR_UNDERLINETAGS_PATCH
@@ -957,8 +957,8 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_v,          switchcol,              {0} },
 	#endif // SWITCHCOL_PATCH
 	#if ROTATESTACK_PATCH
-	{ MODKEY|Mod4Mask,              XK_j,          rotatestack,            {.i = +1 } },
-	{ MODKEY|Mod4Mask,              XK_k,          rotatestack,            {.i = -1 } },
+	{ MODKEY|Mod1Mask,              XK_j,          rotatestack,            {.i = +1 } },
+	{ MODKEY|Mod1Mask,              XK_k,          rotatestack,            {.i = -1 } },
 	#endif // ROTATESTACK_PATCH
 	#if INPLACEROTATE_PATCH
 	{ MODKEY|Mod4Mask,              XK_j,          inplacerotate,          {.i = +2 } }, // same as rotatestack

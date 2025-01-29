@@ -19,7 +19,7 @@
  * Awesomebar takes precedence over fancybar.
  * https://dwm.suckless.org/patches/awesomebar/
  */
-#define BAR_AWESOMEBAR_PATCH 0
+#define BAR_AWESOMEBAR_PATCH 1
 
 /* This patch depends on statuscmd patch and adds integration with a (patched)
  * dwmblocks instance to give a clickable status bar. One must not necessarily
@@ -29,7 +29,7 @@
  * dwmblocks: https://github.com/torrinfail/dwmblocks
  * https://dwm.suckless.org/patches/statuscmd/
  */
-#define BAR_DWMBLOCKS_PATCH 0
+#define BAR_DWMBLOCKS_PATCH 1
 
 /* Originally the dwmblocks + statuscmd patch used a user defined signal (SIGUSR1)
  * for communicating with dwmblocks to indicate update signal and what button was
@@ -149,14 +149,14 @@
  * when clicking the status bar. Refer to the website for usage.
  * https://dwm.suckless.org/patches/statuscmd/
  */
-#define BAR_STATUSCMD_PATCH 0
+#define BAR_STATUSCMD_PATCH 1
 
 /* Status2d allows colors and rectangle drawing in your dwm status bar.
  * This patch is incompatible with the statuscolors patch which takes precedence.
  * This patch is incompatible with the extrabar patch.
  * https://dwm.suckless.org/patches/status2d/
  */
-#define BAR_STATUS2D_PATCH 0
+#define BAR_STATUS2D_PATCH 1
 
 /* Supplementary patch should you want to disable alpha for the status2d section */
 #define BAR_STATUS2D_NO_ALPHA_PATCH 0
@@ -167,7 +167,7 @@
  * E.g. ^B5^ would use color5 as the background color.
  * https://dwm.suckless.org/patches/status2d/
  */
-#define BAR_STATUS2D_XRDB_TERMCOLORS_PATCH 0
+#define BAR_STATUS2D_XRDB_TERMCOLORS_PATCH 1
 
 /* The systray patch adds systray for the status bar.
  * https://dwm.suckless.org/patches/systray/
@@ -185,7 +185,7 @@
 /* This patch underlines the selected tag, or optionally all tags.
  * https://dwm.suckless.org/patches/underlinetags/
  */
-#define BAR_UNDERLINETAGS_PATCH 0
+#define BAR_UNDERLINETAGS_PATCH 1
 
 /* This patch adds the window icon next to the window title in the bar.
  *
@@ -203,7 +203,7 @@
  * https://github.com/AdamYuan/dwm-winicon
  * https://dwm.suckless.org/patches/winicon
  */
-#define BAR_WINICON_PATCH 0
+#define BAR_WINICON_PATCH 1
 
 /* Show window title in bar */
 #define BAR_WINTITLE_PATCH 1
@@ -459,7 +459,7 @@
  * This patch interferes with the center transient windows patches.
  * https://dwm.suckless.org/patches/alwayscenter/
  */
-#define ALWAYSCENTER_PATCH 0
+#define ALWAYSCENTER_PATCH 1
 
 /* This patch allows windows to be resized with its aspect ratio remaining constant.
  * https://dwm.suckless.org/patches/aspectresize/
@@ -576,7 +576,7 @@
 /* The cyclelayouts patch lets you cycle through all your layouts.
  * https://dwm.suckless.org/patches/cyclelayouts/
  */
-#define CYCLELAYOUTS_PATCH 0
+#define CYCLELAYOUTS_PATCH 1
 
 /* Make dwm respect _MOTIF_WM_HINTS property, and not draw borders around windows requesting
  * for it. Some applications use this property to notify window managers to not draw window
@@ -1010,7 +1010,7 @@
 /* This patch let's you rotate through the stack using keyboard shortcuts.
  * https://dwm.suckless.org/patches/rotatestack/
  */
-#define ROTATESTACK_PATCH 0
+#define ROTATESTACK_PATCH 1
 
 /* This patch adds rounded corners to client windows in dwm.
  * You need to uncomment the corresponding line in config.mk to use the -lXext library
