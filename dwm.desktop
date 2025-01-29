@@ -2,6 +2,6 @@
 Encoding=UTF-8
 Name=Dwm
 Comment=Dynamic window manager
-Exec=dwm
+Exec=$HOME/dotfiles/bin/desc/dwm.desktop.runner.sh
 Icon=dwm
 Type=XSession
