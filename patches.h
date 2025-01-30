@@ -828,7 +828,7 @@
 /* This patch allows you to move clients around in the stack and swap them with the master.
  * https://dwm.suckless.org/patches/movestack/
  */
-#define MOVESTACK_PATCH 0
+#define MOVESTACK_PATCH 1
 
 /* This patch allows you to change the names of tags during runtime.
  *
@@ -1024,7 +1024,7 @@
  * will be restored.
  * https://dwm.suckless.org/patches/save_floats/
  */
-#define SAVEFLOATS_PATCH 0
+#define SAVEFLOATS_PATCH 1
 
 /* The scratchpad patch allows you to spawn or restore floating terminal windows.
  * It is typically useful when one need to do some short typing.
@@ -1331,7 +1331,7 @@
  * https://github.com/bakkeby/patches/wiki/togglelayout
  */
 
-#define TOGGLELAYOUT_PATCH 0
+#define TOGGLELAYOUT_PATCH 1
 
 /* Minor patch that lets you use the same keyboard shortcut to toggle to the previous tag if the
  * designated tag is already active.
@@ -1386,7 +1386,7 @@
 
 /* By default MOD+Tab will take the user back to the previous tag only. If the user keeps
  * using MOD+Tab then the view will switch back and forth between the current and previous tag.
- * This patch allows dwm to keep a longer history of previous tag changes such that MOD+Tab can
+ * This patch allows dwm to keep a longer history of previous tag changes stogglefloatingcenteruch that MOD+Tab can
  * be pressed multiple times to go further back to earlier tag selections.
  *
  * The number of history elements is defined by the NUMVIEWHIST macro in dwm.c and defaults to
@@ -1403,7 +1403,7 @@
  * when the mouse cursor is (a) on a different screen or (b) on top of a different window.
  * https://dwm.suckless.org/patches/warp/
  */
-#define WARP_PATCH 0
+#define WARP_PATCH 1
 
 /* Sometimes a single application opens different windows depending on the task
  * at hand and this is often reflected in the WM_WINDOW_ROLE(STRING) x property.
@@ -1482,7 +1482,7 @@
 /* Fibonacci dwindle layout.
  * https://dwm.suckless.org/patches/fibonacci/
  */
-#define FIBONACCI_DWINDLE_LAYOUT 0
+#define FIBONACCI_DWINDLE_LAYOUT 1
 
 /* Fibonacci spiral layout.
  * https://dwm.suckless.org/patches/fibonacci/

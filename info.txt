@@ -1,6 +1,9 @@
 sudo pacman -S imlib2
 
-last applied: ATTACHBOTTOM_PATCH
 
 to do:
 RENAMED_SCRATCHPADS_PATCH
+
+
+interestings:
+WINDOWROLERULE_PATCH
