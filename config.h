@@ -147,7 +147,7 @@ static const unsigned int maxhtab          = 200;  /* tab menu height */
 /* Indicators: see patch/bar_indicators.h for options */
 static int tagindicatortype              = INDICATOR_BOTTOM_BAR;
 static int tiledindicatortype            = INDICATOR_NONE;
-static int floatindicatortype            = INDICATOR_TOP_LEFT_SQUARE;
+static int floatindicatortype            = INDICATOR_PLUS;
 #if FAKEFULLSCREEN_CLIENT_PATCH && !FAKEFULLSCREEN_PATCH
 static int fakefsindicatortype           = INDICATOR_PLUS;
 static int floatfakefsindicatortype      = INDICATOR_PLUS_AND_LARGER_SQUARE;
@@ -424,8 +424,14 @@ static const char *const autostart[] = {
 
 #if RENAMED_SCRATCHPADS_PATCH
 static const char *scratchpadcmd[] = {"s", "st", "-n", "spterm", NULL};
+
 static const char *scratchpad_yazi_cmd[] = {"y", "ghostty", "--class=com.scratchpad.yazi", "-e", "yazi", NULL};
 static const char *scratchpad_telegram_cmd[] = {"t", "telegram-desktop", NULL};
+static const char *scratchpad_nautilus_cmd[] = {"n", "nautilus", NULL};
+static const char *scratchpad_youtube_music_cmd[] = {"m", "brave", "--profile-directory=Default", "--app-id=cinhimbnkkaeohfgghhklpknlkffjgod", NULL};
+static const char *scratchpad_google_chat_cmd[] = {"g", "brave", "--profile-directory=Default", "--app-id=mdpkiolbdkhdjpekfbkbmhigcaggjagi", NULL};
+static const char *scratchpad_monkey_type_cmd[] = {"u", "brave", "--profile-directory=Default", "--app-id=picebhhlijnlefeleilfbanaghjlkkna", NULL};
+
 #elif SCRATCHPADS_PATCH
 const char *spcmd1[] = {"st", "-n", "spterm", "-g", "120x34", NULL };
 static Sp scratchpads[] = {
@@ -552,6 +558,14 @@ static const Rule rules[] = {
 	// RULE(.class = "com.scratchpad.yazi", .scratchkey = 'y', .isfloating = 1, .floatpos="-1x -1y W H")
 	RULE(.class = "com.scratchpad.yazi", .scratchkey = 'y', .isfloating = 1, .floatpos="-1x -1y 80% 80%")
 	RULE(.class = "TelegramDesktop", .instance = "telegram-desktop", .scratchkey = 't', .isfloating = 1, .floatpos="-1x -1y 70% 70%")
+	RULE(.class = "org.gnome.Nautilus", .instance = "org.gnome.Nautilus", .scratchkey = 'n', .isfloating = 1, .floatpos="-1x -1y 80% 80%")
+
+    // music
+	RULE(.class = "Brave-browser", .instance = "crx_cinhimbnkkaeohfgghhklpknlkffjgod", .scratchkey = 'm', .isfloating = 1, .floatpos="-1x -1y 80% 80%")
+    // chat 
+	RULE(.class = "Brave-browser", .instance = "crx_mdpkiolbdkhdjpekfbkbmhigcaggjagi", .scratchkey = 'g', .isfloating = 1, .floatpos="-1x -1y 80% 80%")
+    // monkeytype
+	RULE(.class = "Brave-browser", .instance = "crx_picebhhlijnlefeleilfbanaghjlkkna", .scratchkey = 'u', .isfloating = 1, .floatpos="-1x -1y 80% 80%")
 
 	RULE(.instance = "spterm", .scratchkey = 's', .isfloating = 1)
 	#elif SCRATCHPADS_PATCH
@@ -1162,6 +1176,11 @@ static const Key keys[] = {
 	#if RENAMED_SCRATCHPADS_PATCH
 	{ MODKEY,                       XK_y,          togglescratch,          {.v = scratchpad_yazi_cmd } },
 	{ MODKEY,                       XK_t,          togglescratch,          {.v = scratchpad_telegram_cmd } },
+	{ MODKEY,                       XK_n,          togglescratch,          {.v = scratchpad_nautilus_cmd } },
+	{ MODKEY,                       XK_m,          togglescratch,          {.v = scratchpad_youtube_music_cmd } },
+	{ MODKEY,                       XK_g,          togglescratch,          {.v = scratchpad_google_chat_cmd } },
+	{ MODKEY,                       XK_u,          togglescratch,          {.v = scratchpad_monkey_type_cmd } },
+
 	{ MODKEY,                       XK_grave,      togglescratch,          {.v = scratchpadcmd } },
 	{ MODKEY|ControlMask,           XK_grave,      setscratch,             {.v = scratchpadcmd } },
 	{ MODKEY|ShiftMask,             XK_grave,      removescratch,          {.v = scratchpadcmd } },

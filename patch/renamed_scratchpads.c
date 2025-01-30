@@ -44,8 +44,15 @@ togglescratch(const Arg *arg)
 	   to move clients across from one monitor to another or not */
 	for (mon = mons; mon; mon = mon->next)
 		for (c = mon->clients; c; c = c->next) {
-			if (c->scratchkey != ((char**)arg->v)[0][0])
-				continue;
+			if (c->scratchkey != ((char**)arg->v)[0][0]) {
+                #if RENAMED_SCRATCHPADS_ONLY_ONE_PATCH
+                if (c->scratchkey != 0) {
+                      // The client has a scratchkey assigned
+                      c->tags = 0;
+                }
+                #endif // RENAMED_SCRATCHPADS_ONLY_ONE_PATCH
+                continue;
+            }
 			if (scratchmon != -1 && scratchmon != mon->num)
 				multimonscratch = 1;
 			if (c->mon->tagset[c->mon->seltags] & c->tags) // && !HIDDEN(c)

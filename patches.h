@@ -966,6 +966,11 @@
  */
 #define RENAMED_SCRATCHPADS_PATCH 1
 
+/**
+ * Personal: Show only one scratchpad at a time, hide all another if visible.
+ */
+#define RENAMED_SCRATCHPADS_ONLY_ONE_PATCH 1
+
 /* Renamed scratchpads option to auto-hide scratchpads when moving to a different tag.
  * This behaviour is similar to that of the (multiple) scratchpads patch. */
 #define RENAMED_SCRATCHPADS_AUTO_HIDE_PATCH 0
