@@ -424,6 +424,8 @@ static const char *const autostart[] = {
 
 #if RENAMED_SCRATCHPADS_PATCH
 static const char *scratchpadcmd[] = {"s", "st", "-n", "spterm", NULL};
+static const char *scratchpad_yazi_cmd[] = {"y", "ghostty", "--class=com.scratchpad.yazi", "-e", "yazi", NULL};
+static const char *scratchpad_telegram_cmd[] = {"t", "telegram-desktop", NULL};
 #elif SCRATCHPADS_PATCH
 const char *spcmd1[] = {"st", "-n", "spterm", "-g", "120x34", NULL };
 static Sp scratchpads[] = {
@@ -502,6 +504,7 @@ static const int tagrows = 2;
  * Refer to the Rule struct definition for the list of available fields depending on
  * the patches you enable.
  */
+#define TAG(n) (1 << (n - 1))
 static const Rule rules[] = {
 	/* xprop(1):
 	 *	WM_CLASS(STRING) = instance, class
@@ -515,7 +518,41 @@ static const Rule rules[] = {
 	RULE(.wintype = WTYPE "SPLASH", .isfloating = 1)
 	RULE(.class = "Gimp", .tags = 1 << 4)
 	RULE(.class = "Firefox", .tags = 1 << 7)
+
+    // Custom:
+	// RULE(.instance = "ghostty", .tags = TAG(6))
+	// RULE(.class = "com.mitchellh.ghostty", .tags = TAG(6))
+
+    // Floating:
+	RULE(.class = "htop_info", .isfloating = 1)
+	RULE(.class = "disc_ugd", .isfloating = 1)
+	RULE(.class = "qBittorrent", .isfloating = 1)
+	RULE(.class = "pavucontrol", .isfloating = 1)
+	RULE(.class = "gnome-system-monitor", .isfloating = 1)
+	RULE(.class = "gnome-control-center", .isfloating = 1)
+	RULE(.class = "gnome-calculator", .isfloating = 1)
+	RULE(.class = "org.gnome.Characters", .isfloating = 1)
+	RULE(.class = "org.gnome.clocks", .isfloating = 1)
+	RULE(.class = "gnome-calendar", .isfloating = 1)
+	RULE(.class = "Gnome-disks", .isfloating = 1)
+	RULE(.class = "Nm-connection-editor", .isfloating = 1)
+	RULE(.class = "ViberPC", .isfloating = 1)
+	RULE(.class = "vlc", .isfloating = 1)
+	RULE(.class = "snapshot", .isfloating = 1)
+	RULE(.class = "Gcolor3", .isfloating = 1)
+	RULE(.class = "Glate", .isfloating = 1)
+	RULE(.class = "disc_ugd", .isfloating = 1)
+
+	RULE(.class = "jetbrains-idea", .tags = TAG(2))
+	RULE(.class = "Code", .tags = TAG(2))
+
+	// RULE(.class = "TelegramDesktop", .instance = "telegram-desktop", .isfloating = 1)
+        
 	#if RENAMED_SCRATCHPADS_PATCH
+	// RULE(.class = "com.scratchpad.yazi", .scratchkey = 'y', .isfloating = 1, .floatpos="-1x -1y W H")
+	RULE(.class = "com.scratchpad.yazi", .scratchkey = 'y', .isfloating = 1, .floatpos="-1x -1y 80% 80%")
+	RULE(.class = "TelegramDesktop", .instance = "telegram-desktop", .scratchkey = 't', .isfloating = 1, .floatpos="-1x -1y 70% 70%")
+
 	RULE(.instance = "spterm", .scratchkey = 's', .isfloating = 1)
 	#elif SCRATCHPADS_PATCH
 	RULE(.instance = "spterm", .tags = SPTAG(0), .isfloating = 1)
@@ -783,7 +820,7 @@ static const Layout layouts[] = {
 /* xkb frontend */
 static const char *xkb_layouts[]  = {
 	"en",
-	"ru",
+	"ua",
 };
 #endif // XKB_PATCH
 
@@ -1092,10 +1129,10 @@ static const Key keys[] = {
 	#if XRDB_PATCH && !BAR_VTCOLORS_PATCH
 	{ MODKEY|ShiftMask,             XK_F5,         xrdb,                   {.v = NULL } },
 	#endif // XRDB_PATCH
-	{ MODKEY,                       XK_t,          setlayout,              {.v = &layouts[0]} },
-	{ MODKEY,                       XK_f,          setlayout,              {.v = &layouts[1]} },
-	{ MODKEY,                       XK_m,          setlayout,              {.v = &layouts[2]} },
-	{ MODKEY,                       XK_r,          setlayout,              {.v = &layouts[3]} },
+	{ MODKEY|Mod1Mask,             XK_t,          setlayout,              {.v = &layouts[0]} },
+	{ MODKEY|Mod1Mask,             XK_f,          setlayout,              {.v = &layouts[1]} },
+	{ MODKEY|Mod1Mask,             XK_m,          setlayout,              {.v = &layouts[2]} },
+	{ MODKEY|Mod1Mask,             XK_r,          setlayout,              {.v = &layouts[3]} },
 	#if COLUMNS_LAYOUT
 	{ MODKEY,                       XK_c,          setlayout,              {.v = &layouts[3]} },
 	#endif // COLUMNS_LAYOUT
@@ -1123,6 +1160,8 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_Escape,     togglenomodbuttons,     {0} },
 	#endif // NO_MOD_BUTTONS_PATCH
 	#if RENAMED_SCRATCHPADS_PATCH
+	{ MODKEY,                       XK_y,          togglescratch,          {.v = scratchpad_yazi_cmd } },
+	{ MODKEY,                       XK_t,          togglescratch,          {.v = scratchpad_telegram_cmd } },
 	{ MODKEY,                       XK_grave,      togglescratch,          {.v = scratchpadcmd } },
 	{ MODKEY|ControlMask,           XK_grave,      setscratch,             {.v = scratchpadcmd } },
 	{ MODKEY|ShiftMask,             XK_grave,      removescratch,          {.v = scratchpadcmd } },
@@ -1136,7 +1175,6 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_t,          unfloatvisible,         {.v = &layouts[0]} },
 	#endif // UNFLOATVISIBLE_PATCH
 	#if TOGGLEFULLSCREEN_PATCH
-	// { MODKEY,                       XK_y,          togglefullscreen,       {0} },
 	{ MODKEY|ShiftMask,             XK_f,             togglefullscreen,       {0} },
 	#endif // TOGGLEFULLSCREEN_PATCH
 	#if !FAKEFULLSCREEN_PATCH && FAKEFULLSCREEN_CLIENT_PATCH
