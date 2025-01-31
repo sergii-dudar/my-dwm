@@ -113,7 +113,7 @@ static const int lcaselbl = 0;                  /* 1 means make tag label lowerc
 #endif // BAR_TAGLABELS_PATCH
 #if BAR_UNDERLINETAGS_PATCH
 static const unsigned int ulinepad = 0;         /* horizontal padding between the underline and tag */
-static const unsigned int ulinestroke  = 4;     /* thickness / height of the underline */
+static const unsigned int ulinestroke  = 5;     /* thickness / height of the underline */
 static const unsigned int ulinevoffset = 0;     /* how far above the bottom of the bar the line should appear */
 static const int ulineall = 0;                  /* 1 to show underline on all tags, 0 for just the active ones */
 #endif // BAR_UNDERLINETAGS_PATCH
@@ -168,7 +168,9 @@ static void (*bartabmonfns[])(Monitor *) = { NULL /* , customlayoutfn */ };
 #if BAR_PANGO_PATCH
 static const char font[]                 = "monospace 10";
 #else
-static const char *fonts[]               = { "CaskaydiaCove Nerd Font:bold:size=14" };
+static const char *fonts[]               = { 
+        "CaskaydiaCove Nerd Font:bold:size=14",
+};
 #endif // BAR_PANGO_PATCH
 static const char dmenufont[]            = "CaskaydiaCove Nerd Font:bold:size=14";
 
@@ -473,7 +475,8 @@ static char tagicons[][NUMTAGS][MAX_TAGLEN] =
 static char *tagicons[][NUMTAGS] =
 #endif // NAMETAG_PATCH
 {
-	[DEFAULT_TAGS]        = { "1", "2", "3", "4", "5", "6", "7", "8", "9" },
+	// [DEFAULT_TAGS]        = { "1", "2", "3", "4", "5", "6", "7", "8", "9" },
+	[DEFAULT_TAGS]        = { "1 ", "2 ", "3 ", "4 ", "5 ", "6 󰣇", "7 ", "8 ", "9 " },
 	[ALTERNATIVE_TAGS]    = { "A", "B", "C", "D", "E", "F", "G", "H", "I" },
 	[ALT_TAGS_DECORATION] = { "<1>", "<2>", "<3>", "<4>", "<5>", "<6>", "<7>", "<8>", "<9>" },
 };
