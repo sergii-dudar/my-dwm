@@ -1413,17 +1413,22 @@ static const Command commands[] = {
 #else
 /* click can be ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
 #endif //
-static const Button buttons[] = {
+static Button buttons[] = {
 	/* click                event mask           button          function        argument */
 	#if BAR_STATUSBUTTON_PATCH
 	{ ClkButton,            0,                   Button1,        spawn,          {.v = dmenucmd } },
 	#endif // BAR_STATUSBUTTON_PATCH
+	#if CYCLELAYOUTS_PATCH
+	{ ClkLtSymbol,          0,                   Button1,        cyclelayout,    { .i = -1 } },
+	{ ClkLtSymbol,          0,                   Button3,        cyclelayout,    { .i = +1 } },
+	#else
 	{ ClkLtSymbol,          0,                   Button1,        setlayout,      {0} },
 	#if BAR_LAYOUTMENU_PATCH
 	{ ClkLtSymbol,          0,                   Button3,        layoutmenu,     {0} },
 	#else
 	{ ClkLtSymbol,          0,                   Button3,        setlayout,      {.v = &layouts[2]} },
 	#endif // BAR_LAYOUTMENU_PATCH
+	#endif // CYCLELAYOUTS_PATCH
 	#if BAR_WINTITLEACTIONS_PATCH
 	{ ClkWinTitle,          0,                   Button1,        togglewin,      {0} },
 	{ ClkWinTitle,          0,                   Button3,        showhideclient, {0} },
@@ -1433,6 +1438,8 @@ static const Button buttons[] = {
 	{ ClkStatusText,        0,                   Button1,        sigstatusbar,   {.i = 1 } },
 	{ ClkStatusText,        0,                   Button2,        sigstatusbar,   {.i = 2 } },
 	{ ClkStatusText,        0,                   Button3,        sigstatusbar,   {.i = 3 } },
+	{ ClkStatusText,        0,                   Button4,        sigstatusbar,   {.i = 4 } },
+	{ ClkStatusText,        0,                   Button5,        sigstatusbar,   {.i = 5 } },
 	#elif BAR_STATUSCMD_PATCH
 	{ ClkStatusText,        0,                   Button1,        spawn,          {.v = statuscmd } },
 	{ ClkStatusText,        0,                   Button2,        spawn,          {.v = statuscmd } },
@@ -1477,7 +1484,6 @@ static const Button buttons[] = {
 	{ ClkTabBar,            0,                   Button1,        focuswin,       {0} },
 	#endif // TAB_PATCH
 };
-
 #if DWMC_PATCH
 /* signal definitions */
 /* signum must be greater than 0 */
