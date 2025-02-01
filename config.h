@@ -177,7 +177,7 @@ static const char dmenufont[]            = "CaskaydiaCove Nerd Font:bold:size=14
 static char c000000[]                    = "#000000"; // placeholder value
 
 static char normfgcolor[]                = "#83a598"; // "#bbbbbb";
-static char normbgcolor[]                = "#232634"; //"#222222";
+static char normbgcolor[]                = "#2E3440"; // "#232634"; //"#222222";
 static char normbordercolor[]            = "#444444";
 static char normfloatcolor[]             = "#db8fd9";
 
