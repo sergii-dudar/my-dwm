@@ -94,7 +94,7 @@ static const int statusmon               = 0;
 static const int statusmon               = 'A';
 #endif // BAR_STATUSALLMONS_PATCH | BAR_STATICSTATUS_PATCH
 #if BAR_STATUSPADDING_PATCH
-static const int horizpadbar             = 6;   /* horizontal padding for statusbar */
+static const int horizpadbar             = 0;   /* horizontal padding for statusbar */
 static const int vertpadbar              = 8;   /* vertical padding for statusbar */
 // static const int horizpadbar             = 8;   /* horizontal padding for statusbar */
 // static const int vertpadbar              = 12;   /* vertical padding for statusbar */
