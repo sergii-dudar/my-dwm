@@ -533,7 +533,9 @@ static const Rule rules[] = {
 	// RULE(.class = "com.mitchellh.ghostty", .tags = TAG(6))
 
     // Floating:
-	RULE(.class = "htop_info", .isfloating = 1)
+	RULE(.instance = "htop_info", .isfloating = 1)
+	RULE(.instance = "disc_ugd", .isfloating = 1)
+
 	RULE(.class = "disc_ugd", .isfloating = 1)
 	RULE(.class = "qBittorrent", .isfloating = 1)
 	RULE(.class = "pavucontrol", .isfloating = 1)
