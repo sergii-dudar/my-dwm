@@ -7,3 +7,9 @@ RENAMED_SCRATCHPADS_PATCH
 
 interestings:
 WINDOWROLERULE_PATCH
+MONITOR_RULES_PATCH
+
+# not present:
+https://dwm.suckless.org/patches/colorbar/
+https://dwm.suckless.org/patches/alt-tab-class/
+https://dwm.suckless.org/patches/alttab2/
