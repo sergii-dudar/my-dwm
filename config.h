@@ -170,6 +170,8 @@ static const char font[]                 = "monospace 10";
 #else
 static const char *fonts[]               = { 
         "CaskaydiaCove Nerd Font:bold:size=14",
+        //"Noto Color Emoji:size=15",  // sudo pacman -Ss noto-fonts-emoji
+        // "JoyPixels:size=15", // sudo pacman -S ttf-joypixels
 };
 #endif // BAR_PANGO_PATCH
 static const char dmenufont[]            = "CaskaydiaCove Nerd Font:bold:size=14";
