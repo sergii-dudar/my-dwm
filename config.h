@@ -87,7 +87,7 @@ static const int riodraw_matchpid        = 1;  /* 0 or 1, indicates whether to m
 #endif // RIODRAW_PATCH
 /* Status is to be shown on: -1 (all monitors), 0 (a specific monitor by index), 'A' (active monitor) */
 #if BAR_STATUSALLMONS_PATCH
-static const int statusmon               = -1;
+static const int statusmon               = 0;
 #elif BAR_STATICSTATUS_PATCH
 static const int statusmon               = 0;
 #else
@@ -584,7 +584,7 @@ static const Rule rules[] = {
 #if PERTAG_PATCH
 static const MonitorRule monrules[] = {
 	/* monitor  tag   layout  mfact  nmaster  showbar  topbar */
-	{  1,       -1,   2,      -1,    -1,      -1,      -1     }, // use a different layout for the second monitor
+	{  1,       -1,   3,      -1,    -1,      -1,      -1     }, // use a different layout for the second monitor
 	{  -1,      -1,   0,      -1,    -1,      -1,      -1     }, // default
 };
 #else

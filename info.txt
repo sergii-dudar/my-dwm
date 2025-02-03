@@ -1,13 +1,7 @@
 sudo pacman -S imlib2
 
-
-to do:
-RENAMED_SCRATCHPADS_PATCH
-
-
-interestings:
+interesting:
 WINDOWROLERULE_PATCH
-MONITOR_RULES_PATCH
 
 # not present:
 https://dwm.suckless.org/patches/colorbar/
