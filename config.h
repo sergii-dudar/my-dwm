@@ -559,7 +559,13 @@ static const Rule rules[] = {
 	RULE(.class = "jetbrains-idea", .tags = TAG(2))
 	RULE(.class = "Code", .tags = TAG(2))
 
-	// RULE(.class = "TelegramDesktop", .instance = "telegram-desktop", .isfloating = 1)
+    // Swallowing
+	RULE(.class = "com.mitchellh.ghostty", .isterminal=1)
+
+    // no swallow for apps
+    RULE(.title="Event Tester", .noswallow=1)
+
+    // RULE(.class = "TelegramDesktop", .instance = "telegram-desktop", .isfloating = 1)
         
 	#if RENAMED_SCRATCHPADS_PATCH
 	// RULE(.class = "com.scratchpad.yazi", .scratchkey = 'y', .isfloating = 1, .floatpos="-1x -1y W H")
