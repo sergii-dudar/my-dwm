@@ -169,7 +169,8 @@ static void (*bartabmonfns[])(Monitor *) = { NULL /* , customlayoutfn */ };
 static const char font[]                 = "monospace 10";
 #else
 static const char *fonts[]               = { 
-        "CaskaydiaCove Nerd Font:bold:size=14",
+        // "CaskaydiaCove Nerd Font:bold:size=14",
+         "CaskaydiaCove Nerd Font:bold:pixelsize=24",
         //"Noto Color Emoji:size=15",  // sudo pacman -Ss noto-fonts-emoji
         // "JoyPixels:size=15", // sudo pacman -S ttf-joypixels
 };
