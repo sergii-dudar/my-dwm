@@ -1451,6 +1451,7 @@ static Button buttons[] = {
 	{ ClkStatusText,        0,                   Button3,        sigstatusbar,   {.i = 3 } },
 	{ ClkStatusText,        0,                   Button4,        sigstatusbar,   {.i = 4 } },
 	{ ClkStatusText,        0,                   Button5,        sigstatusbar,   {.i = 5 } },
+	{ ClkStatusText,        ShiftMask,           Button1,        sigstatusbar,   {.i = 6 } },
 	#elif BAR_STATUSCMD_PATCH
 	{ ClkStatusText,        0,                   Button1,        spawn,          {.v = statuscmd } },
 	{ ClkStatusText,        0,                   Button2,        spawn,          {.v = statuscmd } },
