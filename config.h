@@ -559,6 +559,7 @@ static const Rule rules[] = {
 
 	RULE(.class = "jetbrains-idea", .tags = TAG(2))
 	RULE(.class = "Code", .tags = TAG(2))
+	RULE(.class="Brave-browser", .instance="brave-browser", .tags = TAG(2))
 
     // Swallowing
 	RULE(.class = "com.mitchellh.ghostty", .isterminal=1)
