@@ -4572,7 +4572,8 @@ unmanage(Client *c, int destroyed)
 		XSelectInput(dpy, c->win, NoEventMask);
 		XConfigureWindow(dpy, c->win, CWBorderWidth, &wc); /* restore border */
 		XUngrabButton(dpy, AnyButton, AnyModifier, c->win);
-		setclientstate(c, WithdrawnState);
+		if (!HIDDEN(c))
+			setclientstate(c, WithdrawnState);
 		XSync(dpy, False);
 		XSetErrorHandler(xerror);
 		XUngrabServer(dpy);
@@ -5354,10 +5355,10 @@ main(int argc, char *argv[])
 		die("dwm: cannot get xcb connection\n");
 	#endif // SWALLOW_PATCH
 	checkotherwm();
-	#if XRDB_PATCH && !BAR_VTCOLORS_PATCH
+	#if XRESOURCES_PATCH || XRDB_PATCH
 	XrmInitialize();
-	loadxrdb();
-	#endif // XRDB_PATCH && !BAR_VTCOLORS_PATCH
+	load_xresources();
+	#endif // XRESOURCES_PATCH | XRDB_PATCH
 	#if COOL_AUTOSTART_PATCH
 	autostart_exec();
 	#endif // COOL_AUTOSTART_PATCH
