@@ -431,7 +431,7 @@ static const char *const autostart[] = {
 static const char *scratchpadcmd[] = {"s", "st", "-n", "spterm", NULL};
 
 static const char *scratchpad_yazi_cmd[] = {"y", "ghostty", "--class=com.scratchpad.yazi", "-e", "yazi", NULL};
-static const char *scratchpad_telegram_cmd[] = {"t", "telegram-desktop", NULL};
+static const char *scratchpad_telegram_cmd[] = {"t", "Telegram", NULL};
 static const char *scratchpad_nautilus_cmd[] = {"n", "nautilus", NULL};
 static const char *scratchpad_youtube_music_cmd[] = {"m", "brave", "--profile-directory=Default", "--app-id=cinhimbnkkaeohfgghhklpknlkffjgod", NULL};
 static const char *scratchpad_google_chat_cmd[] = {"g", "brave", "--profile-directory=Default", "--app-id=mdpkiolbdkhdjpekfbkbmhigcaggjagi", NULL};
@@ -571,7 +571,7 @@ static const Rule rules[] = {
 	#if RENAMED_SCRATCHPADS_PATCH
 	// RULE(.class = "com.scratchpad.yazi", .scratchkey = 'y', .isfloating = 1, .floatpos="-1x -1y W H")
 	RULE(.class = "com.scratchpad.yazi", .scratchkey = 'y', .isfloating = 1, .floatpos="-1x -1y 80% 80%")
-	RULE(.class = "TelegramDesktop", .instance = "telegram-desktop", .scratchkey = 't', .isfloating = 1, .floatpos="-1x -1y 70% 70%")
+    RULE(.class = "TelegramDesktop", .instance = "Telegram", .scratchkey = 't', .isfloating = 1, .floatpos="-1x -1y 70% 70%")
 	RULE(.class = "org.gnome.Nautilus", .instance = "org.gnome.Nautilus", .scratchkey = 'n', .isfloating = 1, .floatpos="-1x -1y 80% 80%")
 
     // music
@@ -1188,7 +1188,7 @@ static const Key keys[] = {
 	#endif // INSETS_PATCH
 	{ MODKEY|ShiftMask,             XK_Return,     zoom,                   {0} },
 	#if VANITYGAPS_PATCH
-	{ MODKEY|Mod4Mask,              XK_u,          incrgaps,               {.i = +1 } },
+	// { MODKEY|Mod4Mask,              XK_u,          incrgaps,               {.i = +1 } },
 	{ MODKEY|Mod4Mask|ShiftMask,    XK_u,          incrgaps,               {.i = -1 } },
 	{ MODKEY|Mod4Mask,              XK_i,          incrigaps,              {.i = +1 } },
 	{ MODKEY|Mod4Mask|ShiftMask,    XK_i,          incrigaps,              {.i = -1 } },
