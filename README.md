@@ -1,4 +1,4 @@
-This dwm 6.5 (cfb8627, 2024-10-28) side project has a different take on dwm patching. It uses preprocessor directives to decide whether or not to include a patch during build time. Essentially this means that this build, for better or worse, contains both the patched _and_ the original code. The aim being that you can select which patches to include and the build will contain that code and nothing more. Due to the complexity of some of the patches dwm-flexipatch has diverged from mainstream dwm by making some core patches non-optional for maintenance reasons. For the classic dwm-flexipatch build refer to branch [dwm-flexipatch-1.0](https://github.com/bakkeby/dwm-flexipatch/tree/dwm-flexipatch-1.0).
+This dwm 6.6 (693d94d, 2025-08-09) side project has a different take on dwm patching. It uses preprocessor directives to decide whether or not to include a patch during build time. Essentially this means that this build, for better or worse, contains both the patched _and_ the original code. The aim being that you can select which patches to include and the build will contain that code and nothing more. Due to the complexity of some of the patches dwm-flexipatch has diverged from mainstream dwm by making some core patches non-optional for maintenance reasons. For the classic dwm-flexipatch build refer to branch [dwm-flexipatch-1.0](https://github.com/bakkeby/dwm-flexipatch/tree/dwm-flexipatch-1.0).
 
 For example to include the `alpha` patch then you would only need to flip this setting from 0 to 1 in [patches.h](https://github.com/bakkeby/dwm-flexipatch/blob/master/patches.def.h):
 ```c
@@ -18,6 +18,10 @@ Browsing patches? There is a [map of patches](https://coggle.it/diagram/X9IiSSM6
 ---
 
 ### Changelog:
+
+2025-06-27 - Added the banish patch
+
+2025-06-15 - Added the always on top patch
 
 2025-02-25 - Added the xresources patch
 
@@ -268,6 +272,9 @@ Browsing patches? There is a [map of patches](https://coggle.it/diagram/X9IiSSM6
    - [~alwaysfullscreen~](https://dwm.suckless.org/patches/alwaysfullscreen/)
       - ~prevents the focus to drift from the active fullscreen client when using focusstack\(\)~
 
+   - [alwaysontop](https://dwm.suckless.org/patches/alwaysontop/)
+      - allows for floating windows to be toggled to be always on top of other windows
+
    - [anybar](https://dwm.suckless.org/patches/anybar/)
       - enables dwm to manage external status bars such as lemonbar and polybar
       - dwm treats the external bar as it would its own, so all regular dwm commands such as
@@ -298,6 +305,9 @@ Browsing patches? There is a [map of patches](https://coggle.it/diagram/X9IiSSM6
    - [awesomebar](https://dwm.suckless.org/patches/awesomebar/)
       - enhanced taskbar that allows focus / hiding / unhiding of windows by clicking on the status
         bar
+
+   - [banish](https://github.com/bakkeby/patches/wiki/banish/)
+      - hides cursor when using the keyboard, akin to xbanish
 
    - [bar_border](https://codemadness.org/paste/dwm-border-bar.patch)
       - adds a border around the bar similarly to how client windows have borders

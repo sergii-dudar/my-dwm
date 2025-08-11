@@ -104,6 +104,9 @@
 #if ALT_TAB_PATCH
 #include "alttab.c"
 #endif
+#if ALWAYSONTOP_PATCH
+#include "alwaysontop.c"
+#endif
 #if ASPECTRESIZE_PATCH
 #include "aspectresize.c"
 #endif
@@ -112,6 +115,12 @@
 #endif
 #if AUTOSTART_PATCH
 #include "autostart.c"
+#endif
+#if BANISH_PATCH || PLACEMOUSE_PATCH
+#include "recttoclient.c"
+#endif
+#if BANISH_PATCH
+#include "banish.c"
 #endif
 #if CFACTS_PATCH
 #include "cfacts.c"
